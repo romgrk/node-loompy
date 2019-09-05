@@ -2,6 +2,7 @@
   "name": "loompy",
   "version": "0.1.0",
   "description": "",
+  "repository": "https://github.com/romgrk/node-loompy",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
