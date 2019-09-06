@@ -17,12 +17,15 @@ npm install loompy --hdf5_home_linux=/usr/lib/x86_64-linux-gnu/hdf5/serial
 ## API
 
 ### loompy.create(filename, matrix, rowAttrs, colAttrs)
+
 | argument | type | comment |
+|-----|-----|-----|
 |filename|`string`| Path of the file to create |
 |matrix|`TypedArray[]`| Matrix of data, as an array of TypedArrays |
 |rowAttrs|`Object<string:Array>`| Row attributes |
 |colAttrs|`Object<string:Array>`| Column attributes |
 
+Example:
 ```javascript
 const loompy = require('loompy')
 
