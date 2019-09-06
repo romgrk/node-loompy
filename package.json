@@ -1,6 +1,6 @@
 {
   "name": "loompy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "",
   "repository": "https://github.com/romgrk/node-loompy",
   "main": "index.js",
