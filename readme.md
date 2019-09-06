@@ -22,3 +22,14 @@ const col_attrs = { someDoubleAttributes: new Float64Array(10).map((_, i) => i) 
 
 loompy.create(filename, matrix, row_attrs, col_attrs)
 ```
+
+## Installation
+
+This package depends on [hdf5.node](https://github.com/HDF-NI/hdf5.node), you need to specify
+your libhdf5 location when installing for this dependency to compile correctly.
+Read their readme for more details.
+
+Example:
+```
+npm install loompy --hdf5_home_linux=/usr/lib/x86_64-linux-gnu/hdf5/serial
+```
