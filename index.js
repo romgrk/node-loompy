@@ -94,6 +94,13 @@ module.exports = {
 }
 
 
+/**
+ * Creates a new loom file
+ * @param {string} filename Path of the new file
+ * @param {TypedArray[]} matrix Matrix of data, as TypedArrays
+ * @param {Object.<string, Array>} rowAttrs Row attributes
+ * @param {Object.<string, Array>} colAttrs Column attributes
+ */
 function create(filename, matrix, rowAttrs, colAttrs) {
   if (matrix.length === 0 || matrix[0].length === 0)
     throw new Error('Matrix dimensions should both be larger than zero')
@@ -111,8 +118,7 @@ function create(filename, matrix, rowAttrs, colAttrs) {
   const rowGraphsGroup = file.createGroup('row_graphs')
 
   // Add spec version number
-  file['LOOM_SPEC_VERSION'] = '2.0.1'
-  file.flush()
+  file.setAttribute('LOOM_SPEC_VERSION', '2.0.1', { padding: H5Type.H5T_STR_NULLPAD })
 
   // Write matrix
   h5lt.makeDataset(
@@ -130,7 +136,6 @@ function create(filename, matrix, rowAttrs, colAttrs) {
       colAttrsGroup,
       groupName,
       array,
-      { rows: 1, columns: cols }
     )
   })
 
@@ -142,7 +147,6 @@ function create(filename, matrix, rowAttrs, colAttrs) {
       rowAttrsGroup,
       groupName,
       array,
-      { rows: rows, columns: 1 }
     )
   })
 }
@@ -222,11 +226,12 @@ function makeDataset(parent, groupName, array, options) {
   const type = getArrayType(array)
 
   if (type === TYPE.STRING) {
+    // All strings in Loom files are stored as fixed-length null-padded 7-bit ASCII.
     return h5lt.makeDataset(
       parent.id,
       groupName,
       array,
-      { rank: 2, ...options },
+      { fixedSize: true, padding: H5Type.H5T_STR_NULLPAD, ...options },
     )
   }
 
@@ -236,6 +241,6 @@ function makeDataset(parent, groupName, array, options) {
     parent.id,
     groupName,
     buffer,
-    { type: type, rank: 2, ...options }
+    { type: type, ...options }
   )
 }
