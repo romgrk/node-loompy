@@ -2,9 +2,9 @@
  * index.js
  */
 
-const hdf5 = require('hdf5').hdf5
-const h5lt = require('hdf5').h5lt
-const hdf5Globals = require('hdf5/lib/globals')
+const hdf5 = require('@romgrk/hdf5').hdf5
+const h5lt = require('@romgrk/hdf5').h5lt
+const hdf5Globals = require('@romgrk/hdf5/lib/globals')
 const Access = hdf5Globals.Access;
 const H5Type = hdf5Globals.H5Type;
 
