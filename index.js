@@ -149,6 +149,9 @@ function create(filename, matrix, rowAttrs, colAttrs) {
       array,
     )
   })
+
+  // Close
+  file.close()
 }
 
 
