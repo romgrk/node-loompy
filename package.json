@@ -11,6 +11,6 @@
   "author": "Rom Grk <romgrk.cc@gmail.com>",
   "license": "ISC",
   "dependencies": {
-    "@romgrk/hdf5": "^0.3.5"
+    "@romgrk/hdf5": "^0.3.8"
   }
 }

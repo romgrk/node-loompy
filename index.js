@@ -151,6 +151,11 @@ function create(filename, matrix, rowAttrs, colAttrs) {
   })
 
   // Close
+  layersGroup.close()
+  colAttrsGroup.close()
+  colGraphsGroup.close()
+  rowAttrsGroup.close()
+  rowGraphsGroup.close()
   file.close()
 }
 
